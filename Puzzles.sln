@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Puzzle 01 (Power of Two)", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Puzzle 03 (Missing Numbers)", "Puzzle 03 (Missing Numbers)\Puzzle 03 (Missing Numbers).csproj", "{A925018F-9EFC-4C5A-8018-6179E2ECB7B7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Puzzle 04 (Shape)", "Puzzle 04 (Shape)\Puzzle 04 (Shape).csproj", "{16E3AFE1-E892-4AE6-8CEA-97E513AD82CF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x86 = Debug|x86
@@ -19,6 +21,10 @@ Global
 		{A925018F-9EFC-4C5A-8018-6179E2ECB7B7}.Debug|x86.Build.0 = Debug|x86
 		{A925018F-9EFC-4C5A-8018-6179E2ECB7B7}.Release|x86.ActiveCfg = Release|x86
 		{A925018F-9EFC-4C5A-8018-6179E2ECB7B7}.Release|x86.Build.0 = Release|x86
+		{16E3AFE1-E892-4AE6-8CEA-97E513AD82CF}.Debug|x86.ActiveCfg = Debug|x86
+		{16E3AFE1-E892-4AE6-8CEA-97E513AD82CF}.Debug|x86.Build.0 = Debug|x86
+		{16E3AFE1-E892-4AE6-8CEA-97E513AD82CF}.Release|x86.ActiveCfg = Release|x86
+		{16E3AFE1-E892-4AE6-8CEA-97E513AD82CF}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
