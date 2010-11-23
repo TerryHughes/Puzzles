@@ -45,6 +45,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RomanNumeralToken.cs" />
+    <Compile Include="RomanNumeralTokenSpecifications.cs" />
     <Compile Include="Token.cs" />
     <Compile Include="TokenSpecifications.cs" />
   </ItemGroup>
