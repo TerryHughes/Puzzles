@@ -1,0 +1,1 @@
+Write a function that accepts a Roman numeral (valued from “I” to “MMM”) in string format and returns the integer value.   It needs to be able to identify incorrectly formatted strings and throw an appropriate exception.  I leave it to you to research what constitutes a valid Roman numeral.
