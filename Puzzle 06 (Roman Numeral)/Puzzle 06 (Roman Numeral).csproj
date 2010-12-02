@@ -46,6 +46,8 @@
   <ItemGroup>
     <Compile Include="Build.cs" />
     <Compile Include="BuildSpecifications.cs" />
+    <Compile Include="Evaluator.cs" />
+    <Compile Include="EvaluatorSpecifications.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RomanNumeralToken.cs" />
     <Compile Include="RomanNumeralTokenSpecifications.cs" />
