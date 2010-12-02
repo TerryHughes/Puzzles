@@ -45,6 +45,11 @@ namespace THughes.Puzzles.RomanNumeral
             return BuildIncrement(OneToNine(), new Tuple<string, int>("X", 10));
         }
 
+        internal static IEnumerable<Tuple<string, int>> OneToThirtyNine()
+        {
+            return BuildIncrement(OneToNineteen(), new Tuple<string, int>("XX", 20));
+        }
+
         [SuppressMessage("Microsoft.StyleCop.CSharp.MaintainabilityRules", "SA1400:AccessModifierMustBeDeclared", Justification = "Reviewed. Suppression is OK here.")]
         static IEnumerable<Tuple<string, int>> BuildIncrement(IEnumerable<Tuple<string, int>> tuples, Tuple<string, int> increment)
         {
