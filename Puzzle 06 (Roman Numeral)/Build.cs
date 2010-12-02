@@ -9,6 +9,7 @@ namespace THughes.Puzzles.RomanNumeral
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
+    using System.Linq;
 
     [SuppressMessage("Microsoft.StyleCop.CSharp.DocumentationRules", "SA1600:ElementsMustBeDocumented", Justification = "Reviewed. Suppression is OK here.")]
     internal static class Build
@@ -31,6 +32,27 @@ namespace THughes.Puzzles.RomanNumeral
             for (var i = 1; i < 5; i++)
             {
                 yield return new Tuple<string, int>(roman += "I", i);
+            }
+        }
+
+        internal static IEnumerable<Tuple<string, int>> OneToNine()
+        {
+            return BuildIncrement(OneToFour(), new Tuple<string, int>("V", 5));
+        }
+
+        [SuppressMessage("Microsoft.StyleCop.CSharp.MaintainabilityRules", "SA1400:AccessModifierMustBeDeclared", Justification = "Reviewed. Suppression is OK here.")]
+        static IEnumerable<Tuple<string, int>> BuildIncrement(IEnumerable<Tuple<string, int>> tuples, Tuple<string, int> increment)
+        {
+            foreach (var tuple in tuples)
+            {
+                yield return tuple;
+            }
+
+            yield return increment;
+
+            foreach (var tuple in tuples.Reverse().Take(increment.Item2).Reverse())
+            {
+                yield return new Tuple<string, int>(increment.Item1 + tuple.Item1, increment.Item2 + tuple.Item2);
             }
         }
     }

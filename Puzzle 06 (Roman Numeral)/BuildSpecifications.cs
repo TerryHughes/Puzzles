@@ -6,6 +6,8 @@
 
 namespace THughes.Puzzles.RomanNumeral
 {
+    using System;
+    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using Machine.Specifications;
@@ -40,18 +42,19 @@ namespace THughes.Puzzles.RomanNumeral
             tuples[6].Item2.ShouldEqual(1000);
         };
 
-        It can_build_values_one_to_four =()=>
-        {
-            var tuples = Build.OneToFour();
-
-            tuples.Count().ShouldEqual(4);
-            tuples.First().Item1.ShouldEqual("I");
-            tuples.First().Item2.ShouldEqual(1);
-            tuples.Last().Item1.ShouldEqual("IIII");
-            tuples.Last().Item2.ShouldEqual(4);
-        };
+        It can_build_values_one_to_four =()=> Verify(Build.OneToFour(), "IIII", 4);
+        It can_build_values_one_to_nine =()=> Verify(Build.OneToNine(), "VIIII", 9);
 
 // ReSharper restore InconsistentNaming
 #pragma warning restore 169
+
+        static void Verify(IEnumerable<Tuple<string, int>> tuples, string item1, int item2)
+        {
+            tuples.Count().ShouldEqual(item2);
+            tuples.First().Item1.ShouldEqual("I");
+            tuples.First().Item2.ShouldEqual(1);
+            tuples.Last().Item1.ShouldEqual(item1);
+            tuples.Last().Item2.ShouldEqual(item2);
+        }
     }
 }
