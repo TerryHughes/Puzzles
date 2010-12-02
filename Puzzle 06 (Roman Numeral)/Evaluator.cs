@@ -21,7 +21,7 @@ namespace THughes.Puzzles.RomanNumeral
         /// <returns>The roman numeral text as a <see cref="Int32" />.</returns>
         public static int Evaluate(string value)
         {
-            return RomanNumeralToken.Tokens.First(t => value == t.Lexeme).NumericValue;
+            return value.Sum(v => RomanNumeralToken.Tokens.First(t => v.ToString() == t.Lexeme).NumericValue);
         }
     }
 }

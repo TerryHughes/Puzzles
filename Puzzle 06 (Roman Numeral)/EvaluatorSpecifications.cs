@@ -6,6 +6,8 @@
 
 namespace THughes.Puzzles.RomanNumeral
 {
+    using System;
+    using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using Machine.Specifications;
 
@@ -18,15 +20,18 @@ namespace THughes.Puzzles.RomanNumeral
     {
 #pragma warning disable 169
 // ReSharper disable InconsistentNaming
-        It can_evaluate_each_roman_numeral_individually =()=>
-        {
-            foreach (var tuple in Build.IndividualValues())
-            {
-                Evaluator.Evaluate(tuple.Item1).ShouldEqual(tuple.Item2);
-            }
-        };
+        It can_evaluate_each_roman_numeral_individually =()=> Verify(Build.IndividualValues());
+        It can_evaluate_roman_numerals_that_are_in_order =()=> Verify(Build.OneToThreeThousand());
 
 // ReSharper restore InconsistentNaming
 #pragma warning restore 169
+
+        static void Verify(IEnumerable<Tuple<string, int>> tuples)
+        {
+            foreach (var tuple in tuples)
+            {
+                Evaluator.Evaluate(tuple.Item1).ShouldEqual(tuple.Item2);
+            }
+        }
     }
 }
