@@ -44,6 +44,7 @@ namespace THughes.Puzzles.RomanNumeral
 
         It can_build_values_one_to_four =()=> Verify(Build.OneToFour(), "IIII", 4);
         It can_build_values_one_to_nine =()=> Verify(Build.OneToNine(), "VIIII", 9);
+        It can_build_values_one_to_nineteen =()=> Verify(Build.OneToNineteen(), "XVIIII", 19);
 
 // ReSharper restore InconsistentNaming
 #pragma warning restore 169
