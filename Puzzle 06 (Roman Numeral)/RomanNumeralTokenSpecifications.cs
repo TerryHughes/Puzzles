@@ -25,16 +25,19 @@ namespace THughes.Puzzles.RomanNumeral
         Because of =()=> tokens = RomanNumeralToken.Tokens;
 
 // ReSharper disable InconsistentNaming
-        It contains_one_token =()=> tokens.Count().ShouldEqual(1);
-        It contains_a_single_token_for_I_that_equals_1 =()=>
-        {
-            Func<RomanNumeralToken, bool> predicate = t => t.Lexeme == "I";
-
-            tokens.Count(predicate).ShouldEqual(1);
-            tokens.First(predicate).NumericValue.ShouldEqual(1);
-        };
+        It contains_two_tokens =()=> tokens.Count().ShouldEqual(2);
+        It contains_a_single_token_for_I_that_equals_1 =()=> Verify("I", 1);
+        It contains_a_single_token_for_V_that_equals_5 =()=> Verify("V", 5);
 
 // ReSharper restore InconsistentNaming
 #pragma warning restore 169
+
+        static void Verify(string lexeme, int numericValue)
+        {
+            Func<RomanNumeralToken, bool> predicate = t => t.Lexeme == lexeme;
+
+            tokens.Count(predicate).ShouldEqual(1);
+            tokens.First(predicate).NumericValue.ShouldEqual(numericValue);
+        }
     }
 }

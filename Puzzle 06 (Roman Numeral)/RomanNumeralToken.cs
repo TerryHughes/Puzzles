@@ -31,6 +31,7 @@ namespace THughes.Puzzles.RomanNumeral
             get
             {
                 yield return new RomanNumeralToken("I", 1);
+                yield return new RomanNumeralToken("V", 5);
             }
         }
 
