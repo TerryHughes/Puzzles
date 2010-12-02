@@ -25,7 +25,14 @@ namespace THughes.Puzzles.RomanNumeral
         Because of =()=> tokens = RomanNumeralToken.Tokens;
 
 // ReSharper disable InconsistentNaming
-        It contains_zero_tokens =()=> tokens.Count().ShouldEqual(0);
+        It contains_one_token =()=> tokens.Count().ShouldEqual(1);
+        It contains_a_single_token_for_I_that_equals_1 =()=>
+        {
+            Func<RomanNumeralToken, bool> predicate = t => t.Lexeme == "I";
+
+            tokens.Count(predicate).ShouldEqual(1);
+            tokens.First(predicate).NumericValue.ShouldEqual(1);
+        };
 
 // ReSharper restore InconsistentNaming
 #pragma warning restore 169

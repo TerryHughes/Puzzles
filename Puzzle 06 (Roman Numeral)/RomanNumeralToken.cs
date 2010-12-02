@@ -30,7 +30,7 @@ namespace THughes.Puzzles.RomanNumeral
         {
             get
             {
-                return System.Linq.Enumerable.Empty<RomanNumeralToken>();
+                yield return new RomanNumeralToken("I", 1);
             }
         }
 
