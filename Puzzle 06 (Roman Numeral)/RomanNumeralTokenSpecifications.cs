@@ -25,12 +25,13 @@ namespace THughes.Puzzles.RomanNumeral
         Because of =()=> tokens = RomanNumeralToken.Tokens;
 
 // ReSharper disable InconsistentNaming
-        It contains_five_tokens =()=> tokens.Count().ShouldEqual(5);
+        It contains_six_tokens =()=> tokens.Count().ShouldEqual(6);
         It contains_a_single_token_for_I_that_equals_1 =()=> Verify("I", 1);
         It contains_a_single_token_for_V_that_equals_5 =()=> Verify("V", 5);
         It contains_a_single_token_for_X_that_equals_10 =()=> Verify("X", 10);
         It contains_a_single_token_for_L_that_equals_50 =()=> Verify("L", 50);
         It contains_a_single_token_for_C_that_equals_100 =()=> Verify("C", 100);
+        It contains_a_single_token_for_D_that_equals_500 =()=> Verify("D", 500);
 
 // ReSharper restore InconsistentNaming
 #pragma warning restore 169
