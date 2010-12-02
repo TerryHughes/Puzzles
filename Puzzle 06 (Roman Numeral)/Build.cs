@@ -23,5 +23,15 @@ namespace THughes.Puzzles.RomanNumeral
             yield return new Tuple<string, int>("D", 500);
             yield return new Tuple<string, int>("M", 1000);
         }
+
+        internal static IEnumerable<Tuple<string, int>> OneToFour()
+        {
+            var roman = String.Empty;
+
+            for (var i = 1; i < 5; i++)
+            {
+                yield return new Tuple<string, int>(roman += "I", i);
+            }
+        }
     }
 }

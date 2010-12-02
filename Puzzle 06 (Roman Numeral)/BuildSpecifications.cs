@@ -40,6 +40,17 @@ namespace THughes.Puzzles.RomanNumeral
             tuples[6].Item2.ShouldEqual(1000);
         };
 
+        It can_build_values_one_to_four =()=>
+        {
+            var tuples = Build.OneToFour();
+
+            tuples.Count().ShouldEqual(4);
+            tuples.First().Item1.ShouldEqual("I");
+            tuples.First().Item2.ShouldEqual(1);
+            tuples.Last().Item1.ShouldEqual("IIII");
+            tuples.Last().Item2.ShouldEqual(4);
+        };
+
 // ReSharper restore InconsistentNaming
 #pragma warning restore 169
     }
