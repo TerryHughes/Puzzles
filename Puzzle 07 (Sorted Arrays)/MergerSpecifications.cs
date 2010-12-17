@@ -10,14 +10,15 @@ namespace THughes.Puzzles.SortedArrays
     using System.Linq;
     using Machine.Specifications;
 
+// ReSharper disable InconsistentNaming
     [SuppressMessage("Microsoft.StyleCop.CSharp.DocumentationRules", "SA1600:ElementsMustBeDocumented", Justification = "Reviewed. Suppression is OK here.")]
     [SuppressMessage("Microsoft.StyleCop.CSharp.MaintainabilityRules", "SA1400:AccessModifierMustBeDeclared", Justification = "Reviewed. Suppression is OK here.")]
+    [SuppressMessage("Microsoft.StyleCop.CSharp.NamingRules", "SA1300:ElementMustBeginWithUpperCaseLetter", Justification = "Reviewed. Suppression is OK here.")]
     [SuppressMessage("Microsoft.StyleCop.CSharp.NamingRules", "SA1310:FieldNamesMustNotContainUnderscore", Justification = "Reviewed. Suppression is OK here.")]
     [SuppressMessage("Microsoft.StyleCop.CSharp.SpacingRules", "SA1003:SymbolsMustBeSpacedCorrectly", Justification = "Reviewed. Suppression is OK here.")]
     [SuppressMessage("Microsoft.StyleCop.CSharp.SpacingRules", "SA1009:ClosingParenthesisMustBeSpacedCorrectly", Justification = "Reviewed. Suppression is OK here.")]
-    public class MergerSpecifications
+    public class when_one_through_nine_is_divided_into_two_arrays
     {
-// ReSharper disable InconsistentNaming
         static readonly int[] array = Enumerable.Range(1, 9).ToArray();
         static readonly int[] odd = array.Where(i => i % 2 == 1).ToArray();
         static readonly int[] even = array.Where(i => i % 2 == 0).ToArray();
@@ -28,6 +29,7 @@ namespace THughes.Puzzles.SortedArrays
 
         It sorts_the_elements_in_the_array =()=> result.SequenceEqual(array).ShouldBeTrue();
 #pragma warning restore 169
-// ReSharper restore InconsistentNaming
     }
+
+// ReSharper restore InconsistentNaming
 }
