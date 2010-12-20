@@ -6,6 +6,7 @@
 
 namespace THughes.Puzzles.SortedArrays
 {
+    using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
@@ -57,6 +58,26 @@ namespace THughes.Puzzles.SortedArrays
         };
 
         It sorts_the_elements_in_the_array =()=> result.SequenceEqual(array).ShouldBeTrue();
+#pragma warning restore 169
+    }
+
+    [SuppressMessage("Microsoft.StyleCop.CSharp.DocumentationRules", "SA1600:ElementsMustBeDocumented", Justification = "Reviewed. Suppression is OK here.")]
+    [SuppressMessage("Microsoft.StyleCop.CSharp.MaintainabilityRules", "SA1400:AccessModifierMustBeDeclared", Justification = "Reviewed. Suppression is OK here.")]
+    [SuppressMessage("Microsoft.StyleCop.CSharp.NamingRules", "SA1300:ElementMustBeginWithUpperCaseLetter", Justification = "Reviewed. Suppression is OK here.")]
+    [SuppressMessage("Microsoft.StyleCop.CSharp.NamingRules", "SA1310:FieldNamesMustNotContainUnderscore", Justification = "Reviewed. Suppression is OK here.")]
+    [SuppressMessage("Microsoft.StyleCop.CSharp.SpacingRules", "SA1003:SymbolsMustBeSpacedCorrectly", Justification = "Reviewed. Suppression is OK here.")]
+    [SuppressMessage("Microsoft.StyleCop.CSharp.SpacingRules", "SA1009:ClosingParenthesisMustBeSpacedCorrectly", Justification = "Reviewed. Suppression is OK here.")]
+    public class when_edge_case_values_are_used
+    {
+        static readonly int[] minValueArray = Enumerable.Range(Int32.MinValue, 9).ToArray();
+        static readonly int[] zeroArray = Enumerable.Range(-4, 9).ToArray();
+        static readonly int[] maxValueArray = Enumerable.Range(Int32.MaxValue - 8, 9).ToArray();
+        static int[] result;
+
+#pragma warning disable 169
+        Because of =()=> result = Merger.Merge(new[] { maxValueArray, zeroArray, minValueArray });
+
+        It sorts_the_elements_in_the_array =()=> result.SequenceEqual(minValueArray.Union(zeroArray).Union(maxValueArray)).ShouldBeTrue();
 #pragma warning restore 169
     }
 
