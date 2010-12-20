@@ -8,6 +8,7 @@ namespace THughes.Puzzles.SortedArrays
 {
     using System;
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.Diagnostics.CodeAnalysis;
     using System.Linq;
     using Machine.Specifications;
@@ -117,6 +118,33 @@ namespace THughes.Puzzles.SortedArrays
 
         It sorts_the_elements_in_the_array =()=> result.SequenceEqual(new[] { 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9 }).ShouldBeTrue();
 #pragma warning restore 169
+    }
+
+    [SuppressMessage("Microsoft.StyleCop.CSharp.DocumentationRules", "SA1600:ElementsMustBeDocumented", Justification = "Reviewed. Suppression is OK here.")]
+    [SuppressMessage("Microsoft.StyleCop.CSharp.MaintainabilityRules", "SA1400:AccessModifierMustBeDeclared", Justification = "Reviewed. Suppression is OK here.")]
+    [SuppressMessage("Microsoft.StyleCop.CSharp.NamingRules", "SA1300:ElementMustBeginWithUpperCaseLetter", Justification = "Reviewed. Suppression is OK here.")]
+    [SuppressMessage("Microsoft.StyleCop.CSharp.NamingRules", "SA1310:FieldNamesMustNotContainUnderscore", Justification = "Reviewed. Suppression is OK here.")]
+    [SuppressMessage("Microsoft.StyleCop.CSharp.SpacingRules", "SA1003:SymbolsMustBeSpacedCorrectly", Justification = "Reviewed. Suppression is OK here.")]
+    [SuppressMessage("Microsoft.StyleCop.CSharp.SpacingRules", "SA1009:ClosingParenthesisMustBeSpacedCorrectly", Justification = "Reviewed. Suppression is OK here.")]
+    public class when_merging_one_million_values_in_a_single_array
+    {
+        static readonly int[] array = Enumerable.Range(0, 1000000).ToArray();
+        static long time;
+
+#pragma warning disable 169
+        Because of =()=> time = Timed(() => Merger.Merge(new[] { array }));
+
+        It sorts_the_elements_in_the_array_in_under_800_milliseconds =()=> time.ShouldBeLessThan(800);
+#pragma warning restore 169
+
+        static long Timed(Action action)
+        {
+            var watch = Stopwatch.StartNew();
+            action();
+            watch.Stop();
+
+            return watch.ElapsedMilliseconds;
+        }
     }
 
 // ReSharper restore InconsistentNaming
