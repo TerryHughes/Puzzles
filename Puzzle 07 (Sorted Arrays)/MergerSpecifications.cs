@@ -146,22 +146,30 @@ namespace THughes.Puzzles.SortedArrays
     [SuppressMessage("Microsoft.StyleCop.CSharp.SpacingRules", "SA1009:ClosingParenthesisMustBeSpacedCorrectly", Justification = "Reviewed. Suppression is OK here.")]
     public class when_merging_one_million_values_in_multiple_arrays
     {
-        static readonly int[] array = Enumerable.Range(0, 1000000).ToArray();
         static long time;
 
 #pragma warning disable 169
         Because of =()=>
         {
             var arrays = new List<int[]>();
-            for (var i = 0; i < array.Length; i += 1000)
+            for (var i = 0; i < 1000; i++)
             {
-                arrays.Add(array.Skip(i).Take(1000).ToArray());
+                arrays.Add(Generate().OrderBy(x => x).ToArray());
             }
 
             time = TestHelpers.Timed(() => Merger.Merge(arrays));
         };
 
-        It sorts_the_elements_in_the_array_in_under_800_milliseconds =()=> time.ShouldBeLessThan(800);
+        It sorts_the_elements_in_the_array_in_under_1350_milliseconds =()=> time.ShouldBeLessThan(1350);
+
+        static IEnumerable<int> Generate()
+        {
+            var random = new Random();
+            for (var i = 0; i < 1000; i++)
+            {
+                yield return random.Next();
+            }
+        }
 #pragma warning restore 169
     }
 
