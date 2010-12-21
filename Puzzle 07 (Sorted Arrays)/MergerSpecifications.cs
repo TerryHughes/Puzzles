@@ -81,5 +81,23 @@ namespace THughes.Puzzles.SortedArrays
 #pragma warning restore 169
     }
 
+    [SuppressMessage("Microsoft.StyleCop.CSharp.DocumentationRules", "SA1600:ElementsMustBeDocumented", Justification = "Reviewed. Suppression is OK here.")]
+    [SuppressMessage("Microsoft.StyleCop.CSharp.MaintainabilityRules", "SA1400:AccessModifierMustBeDeclared", Justification = "Reviewed. Suppression is OK here.")]
+    [SuppressMessage("Microsoft.StyleCop.CSharp.NamingRules", "SA1300:ElementMustBeginWithUpperCaseLetter", Justification = "Reviewed. Suppression is OK here.")]
+    [SuppressMessage("Microsoft.StyleCop.CSharp.NamingRules", "SA1310:FieldNamesMustNotContainUnderscore", Justification = "Reviewed. Suppression is OK here.")]
+    [SuppressMessage("Microsoft.StyleCop.CSharp.SpacingRules", "SA1003:SymbolsMustBeSpacedCorrectly", Justification = "Reviewed. Suppression is OK here.")]
+    [SuppressMessage("Microsoft.StyleCop.CSharp.SpacingRules", "SA1009:ClosingParenthesisMustBeSpacedCorrectly", Justification = "Reviewed. Suppression is OK here.")]
+    public class when_duplicate_values_are_used_in_different_arrays
+    {
+        static readonly int[] array = Enumerable.Range(1, 9).ToArray();
+        static int[] result;
+
+#pragma warning disable 169
+        Because of =()=> result = Merger.Merge(new[] { array, array });
+
+        It sorts_the_elements_in_the_array =()=> result.SequenceEqual(new[] { 1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 6, 7, 7, 8, 8, 9, 9 }).ShouldBeTrue();
+#pragma warning restore 169
+    }
+
 // ReSharper restore InconsistentNaming
 }
